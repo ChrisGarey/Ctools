@@ -18,17 +18,17 @@ To install Cosmo's Crypt Tools, follow the steps below:
 
 2. Run the following command to copy the script to `/usr/bin`:
 
-`sudo cp ctools /usr/bin/ctools`
+  `sudo cp ctools /usr/bin/ctools`
 
 3. Make the script executable by running the following command:
 
-`sudo chmod +x /usr/bin/cosmo-crypt-tools`
+  `sudo chmod +x /usr/bin/cosmo-crypt-tools`
 
 ## Usage
 
 After installation, you can run the script by typing `cosmo-crypt-tools` in the terminal and following the prompts.
 
-`ctools [OPTION] [FILE]`
+  `ctools [OPTION] [FILE]`
 
 **Cosmo's Crypt Tools has the following options:**
 
@@ -42,15 +42,15 @@ After installation, you can run the script by typing `cosmo-crypt-tools` in the 
 
 Generate a random password:
 
-`ctools -g`
+  `ctools -g`
 
 Encrypt a file:
 
-`ctools -e [FILE]`
+  `ctools -e [FILE]`
 
 Decrypt a file:
 
-`ctools -d [FILE]`
+  `ctools -d [FILE]`
 
 **Limitations**
 
