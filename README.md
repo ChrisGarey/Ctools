@@ -1,3 +1,5 @@
+![ctools_bannersm](https://user-images.githubusercontent.com/107385831/218282181-9e1b03d7-e289-45c0-81a6-72ef80218699.png)
+
 # Cosmo's Crypt Tools
 
 Cosmo's Crypt Tools is a bash script that provides a simple and easy-to-use command line interface for encrypting and decrypting files using OpenSSL. It also includes an option to generate a random 12-character password.
