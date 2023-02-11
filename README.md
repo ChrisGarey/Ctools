@@ -10,6 +10,24 @@ In order to use Cosmo's Crypt Tools, you need to have the following installed on
 
 **Usage:**
 
+## Installation
+
+To install Cosmo's Crypt Tools, follow the steps below:
+
+1. Clone the repository or download the ZIP file and extract it.
+
+2. Run the following command to copy the script to `/usr/bin`:
+
+`sudo cp ctools /usr/bin/ctools`
+
+3. Make the script executable by running the following command:
+
+`sudo chmod +x /usr/bin/cosmo-crypt-tools`
+
+## Usage
+
+After installation, you can run the script by typing `cosmo-crypt-tools` in the terminal and following the prompts.
+
 `ctools [OPTION] [FILE]`
 
 **Cosmo's Crypt Tools has the following options:**
