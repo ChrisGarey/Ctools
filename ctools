@@ -11,7 +11,7 @@ display_help() {
 
 # Check for required packages
 
-# Check for openssl
+# Check for openssl on system
 if ! command -v openssl >/dev/null 2>&1; then
   echo "openssl is required but not installed. Please install openssl and try again."
   exit 1

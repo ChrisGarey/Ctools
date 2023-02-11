@@ -45,4 +45,4 @@ Contributions to Cosmo's Crypt Tools are welcome and encouraged. If you would li
 
 **License**
 
-Cosmo's Crypt Tools is released under the [MIT LICENSE](https://opensource.org/licenses/MIT "MIT License")
+Cosmo's Crypt Tools is released under the [MIT LICENSE](https://opensource.org/licenses/MIT "MIT License")touch
