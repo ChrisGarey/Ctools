@@ -1,0 +1,117 @@
+#!/bin/bash
+
+display_help() {
+  echo "Cosmo's Crypt Tools Usage:"
+  echo " -h, --help            Display this help message"
+  echo " -g, --generate        Generate a random 12-character password"
+  echo " -e, --encrypt <file>  Encrypt a file"
+  echo " -d, --decrypt <file>  Decrypt a file"
+  echo " -q, --quit            Quit the program"
+}
+
+# Check for required packages
+
+# Check for openssl
+if ! command -v openssl >/dev/null 2>&1; then
+  echo "openssl is required but not installed. Please install openssl and try again."
+  exit 1
+fi
+
+while [ $# -gt 0 ]; do
+  case "$1" in
+    -h|--help)
+      display_help
+      exit 0
+      ;;
+    -g|--generate)
+      echo "Generating 12-character password..."
+      openssl rand -base64 12
+      exit 0
+      ;;
+    -e|--encrypt)
+      if [ -z "$2" ]; then
+        echo "Encrypt option requires a file name."
+        exit 1
+      fi
+
+      file_name="$2"
+
+      # Check if the file exists
+      if [ ! -f "$file_name" ]; then
+        echo "File not found."
+        exit 1
+      fi
+
+      # Encrypt the file
+      if [[ $file_name != *.encrypted ]]; then
+  new_file_name="$file_name.encrypted"
+  echo "Enter a password for encryption: "
+    read -s password
+  echo "Encrypting $file_name to $new_file_name"
+  openssl aes-256-cbc -pbkdf2 -k $password -e -in "$file_name" -out "$new_file_name"
+  echo "File encrypted to $new_file_name and ready for use."
+  rm -f "$file_name"
+  exit 0
+fi
+
+      ;;
+    -d|--decrypt)
+      if [ -z "$2" ]; then
+        echo "Decrypt option requires a file name."
+        exit 1
+      fi
+
+      file_name="$2"
+
+      # Check if the file exists
+      if [ ! -f "$file_name" ]; then
+        echo "File not found."
+        exit 1
+      fi
+
+      # Determine the name of the new file
+      new_file_name="${file_name%.*}"
+      if [ "$new_file_name" == "$file_name" ]; then
+        new_file_name="${file_name}_decrypted"
+      fi
+
+      if [ -f "$new_file_name" ]; then
+        echo "The decrypted file already exists. Please delete or move it before trying to decrypt again."
+        exit 1
+      fi
+    
+      # Decrypt the file
+if [[ $file_name == *.encrypted ]]; then
+  new_file_name="${file_name%.encrypted}"
+  
+  while true; do
+    echo "Enter the password for decryption: "
+    read -s password
+    openssl aes-256-cbc -pbkdf2 -d -in "$file_name" -out "$new_file_name" -k $password 2>/dev/null
+    if [ $? -eq 0 ]; then
+      echo "File decrypted to $new_file_name and ready for use."
+      rm -f "$file_name"
+      exit 0
+    else
+      echo "Decryption failed, please try again."
+    fi
+  done
+fi
+
+
+      ;;
+    -q|--quit)
+      echo "Exiting Cosmo's Crypt Tools."
+      exit 0
+      ;;
+    *)
+      echo "Invalid option. Please choose a valid option."
+      display_help
+      exit 1
+      ;;
+    esac
+  shift
+done
+
+display_help
+exit 1
