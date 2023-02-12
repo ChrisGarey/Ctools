@@ -65,8 +65,4 @@ Contributions to Cosmo's Crypt Tools are welcome and encouraged. If you would li
 
 **License**
 
-<<<<<<< HEAD
-Cosmo's Crypt Tools is released under the [MIT LICENSE](https://opensource.org/licenses/MIT "MIT License")touch
-=======
 Cosmo's Crypt Tools is released under the [MIT LICENSE](https://opensource.org/licenses/MIT "MIT License")
->>>>>>> 2609096bd9b7ca1941fd36c446561d346b840c5b
